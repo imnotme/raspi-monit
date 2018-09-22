@@ -1,0 +1,7 @@
+check device boot with path /boot
+	if SPACE usage > 80% then alert
+
+check device rootfs with path /
+	if SPACE usage > 80% then alert
+# version 5.21
+#	if write rate > 10 MB/s for 3 cycles then alert

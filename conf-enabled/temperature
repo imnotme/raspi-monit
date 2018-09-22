@@ -1,0 +1,4 @@
+check program Temperature-script with path /etc/monit/script/pitemp.sh
+       with timeout 500 seconds
+       if status = 1 then alert
+       if status = 1 for 5 cycles then exec "/sbin/shutdown -r now"

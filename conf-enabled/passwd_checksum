@@ -1,0 +1,3 @@
+check file passwd with path /etc/passwd
+	if does not exist then unmonitor
+	if changed checksum then alert

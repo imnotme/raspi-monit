@@ -1,0 +1,6 @@
+check process dhcpcd with pidfile /var/run/dhcpcd.pid
+group pihole
+	start program = "/bin/systemctl start dhcpcd"
+	stop  program = "/bin/systemctl stop dhcpcd"
+	if failed host 127.0.0.1 port 67 type udp then restart
+	if 5 restarts within 5 cycles then timeout

@@ -1,0 +1,8 @@
+check program is-reboot-required with path "/etc/monit/script/reboot-required.sh"
+	if status != 0 then alert
+
+check file unattended-upgrades-log with path "/var/log/unattended-upgrades/unattended-upgrades.log"
+	if timestamp is greater than 3 days then alert
+
+check file unattended-upgrades-conf with path "/etc/apt/apt.conf.d/50unattended-upgrades"
+	if content != "raspbian" then alert 

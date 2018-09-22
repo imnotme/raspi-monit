@@ -1,0 +1,2 @@
+check file kern.log with path /var/log/kern.log
+	if content = ".*Oops.*" then alert

@@ -1,0 +1,6 @@
+check process pihole-FTL with pidfile /var/run/pihole-FTL.pid
+group pihole
+	start program = "/etc/init.d/pihole-FTL start"
+	stop program = "/etc/init.d/pihole-FTL stop"
+	if failed host 127.0.0.1 port 53 type udp then restart
+	if 5 restart within 5 cycles then exec "/sbin/shutdown -r now"

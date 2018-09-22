@@ -1,0 +1,6 @@
+check host google-dns address 8.8.8.8
+	group DNS
+	if failed ping with timeout 5 seconds then alert
+	if failed port 53 type udp protocol dns then alert
+
+# Add your pihole dns here using the same template as the upper one
