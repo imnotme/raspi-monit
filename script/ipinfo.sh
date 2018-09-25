@@ -11,7 +11,7 @@ IPFILE=/tmp/ipinfo.result
 if [ ! -e $IPFILE ]
 	then
 		/usr/bin/curl http://ipinfo.io -o $IPFILE > /dev/null 2>&1
-		echo New IP temp file created
+		echo -n "New IP temp file created | "
 		#exit 3
 fi
 
