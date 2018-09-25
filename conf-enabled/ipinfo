@@ -1,0 +1,9 @@
+#check file ipinfo with path "/tmp/ipinfo.result"
+#	if not exist then exec "/etc/monit/script/ipinfo.sh"
+#	if timestamp greater than 1 day then exec "/etc/monit/script/ipinfo.sh"
+#	if changed md5 checksum then alert
+#
+
+check program ipinfo with path /etc/monit/script/ipinfo.sh
+	every 500 cycles
+	if status != 0 then alert
