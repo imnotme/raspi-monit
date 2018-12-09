@@ -1,0 +1,9 @@
+# Monit SMB Server Monitoring
+# Source : https://www.smarthomebeginner.com/monit-monitor-file-server-status-samba-nfs/
+check process Samba with pidfile "/var/run/samba/smbd.pid"
+    start program = "/etc/init.d/smbd start"
+    stop program  = "/etc/init.d/smbd stop"
+    if failed host 127.0.0.1 port 139 type tcp for 2 cycles then restart
+    if 2 restarts within 3 cycles then unmonitor
+    if failed host 127.0.0.1 port 445 type tcp for 2 cycles then restart
+    if 2 restarts within 3 cycles then unmonitor

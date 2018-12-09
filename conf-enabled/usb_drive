@@ -1,0 +1,7 @@
+check filesystem msataUSB with path /mnt/msata256
+	if space usage > 90% then alert
+
+check program smart_self-test with path /etc/monit/script/smart.sh
+	with timeout 60 seconds
+	every 60 cycles
+	if status != 0 then alert

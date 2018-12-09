@@ -1,6 +1,17 @@
 check host google-dns address 8.8.8.8
 	group DNS
-	if failed ping with timeout 5 seconds then alert
-	if failed port 53 type udp protocol dns then alert
+	depends on router
+	if failed ping with timeout 5 seconds for 3 cycles then alert
+	if failed port 53 type udp protocol dns for 3 cycles then alert
 
-# Add your pihole dns here using the same template as the upper one
+check host Quad9-dns address 9.9.9.9
+	group DNS
+	depends on router
+	if failed ping with timeout 5 seconds for 3 cycles then alert
+	if failed port 53 type udp protocol dns for 3 cycles then alert
+
+check host Quad9-dns-alt address 149.112.112.112
+	group DNS
+	depends on router
+	if failed ping with timeout 5 seconds for 3 cycles then alert
+	if failed port 53 type udp protocol dns for 3 cycles then alert

@@ -5,5 +5,6 @@
 #
 
 check program ipinfo with path /etc/monit/script/ipinfo.sh
+	depends on router
 	every 500 cycles
 	if status != 0 then alert

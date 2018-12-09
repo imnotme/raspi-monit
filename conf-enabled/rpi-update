@@ -1,0 +1,4 @@
+check program rpi-updates with path "/bin/bash -c 'JUST_CHECK=1 /usr/bin/rpi-update | /usr/bin/tail -n1'"
+	depends on router
+	every 1500 cycles
+	if status != 0 then alert

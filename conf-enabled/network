@@ -1,6 +1,7 @@
 check network eth0 with interface eth0
-	if upload > 500 kB/s for 2 cycles then alert
-	if download > 500 kB/s for 5 cycles then alert
+	if upload > 500 kB/s for 5 cycles then alert
+	if download > 500 kB/s for 10 cycles then alert
+#	if failed link for 5 cycles then exec "/sbin/shutdown -r now"
 	
 #       if total downloaded > 1 GB in last 2 hours then alert
 #       if total downloaded > 10 GB in last day then alert
